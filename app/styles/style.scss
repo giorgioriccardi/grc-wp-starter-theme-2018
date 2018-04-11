@@ -1,19 +1,19 @@
 /*!
-Theme Name: Camp Pacific 2018
+Theme Name: GRC 2018
 Theme URI: http://live-wp-prototype.pantheonsite.io/
-Author: Camp Pacific
-Author URI: https://camppacific.com/
-Description: Camp Pacific WordPress Starter Theme 2018
+Author: GRC
+Author URI: https://griccardi.com/
+Description: GRC WordPress Starter Theme 2018
 Version: 1.0.1
 License: GNU General Public License v3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
-Text Domain: cp2018
+Text Domain: grc2018
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
-Camp Pacific 2018 is based on Underscores https://underscores.me/, (C) 2012-2018 Automattic, Inc.
+GRC 2018 is based on Underscores https://underscores.me/, (C) 2012-2018 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 Normalizing styles have been helped along thanks to the fine work of
@@ -42,7 +42,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-// cp settings
+// GRC settings
 // sass-lint:disable clean-import-paths
 // bower:scss
 @import "bower_components/sassy-maps/sass/_sassy-maps.scss";
@@ -55,7 +55,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 @import "base/breakpoints";
 @import "base/variables";
 @import "base/global";
-// end cp settings
+// end GRC settings
 
 // WP _s defaults
 @import "variables-site/variables-site";

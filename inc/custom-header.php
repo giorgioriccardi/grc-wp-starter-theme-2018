@@ -16,34 +16,34 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package Camp_Pacific_2018
+ * @package GRC_2018
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses cp2018_header_style()
+ * @uses grc2018_header_style()
  */
-function cp2018_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'cp2018_custom_header_args', array(
+function grc2018_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'grc2018_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => 'ffffff',
 		'width'                  => 1920,
 		'height'                 => 500,
 		'flex-width'						 => true,
 		// 'flex-height'            => true,
-		'wp-head-callback'       => 'cp2018_header_style',
+		'wp-head-callback'       => 'grc2018_header_style',
 	) ) );
 }
-add_action( 'after_setup_theme', 'cp2018_custom_header_setup' );
+add_action( 'after_setup_theme', 'grc2018_custom_header_setup' );
 
-if ( ! function_exists( 'cp2018_header_style' ) ) :
+if ( ! function_exists( 'grc2018_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see cp2018_custom_header_setup().
+	 * @see grc2018_custom_header_setup().
 	 */
-	function cp2018_header_style() {
+	function grc2018_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*

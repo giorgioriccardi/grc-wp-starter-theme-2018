@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Camp_Pacific_2018
+ * @package GRC_2018
  */
 
 ?>
@@ -22,9 +22,9 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'cp2018' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'grc2018' ); ?></a>
 
-	<!-- CP Custom Header feature -->
+	<!-- GRC Custom Header feature -->
 	<?php
 	/**
 	 * #1
@@ -54,7 +54,7 @@
 		</a>
 	</figure><!-- .header-image -->
 	<?php endif; // End header image check. ?>
-	<!-- end CP Custom Header feature -->
+	<!-- end GRC Custom Header feature -->
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
@@ -79,7 +79,7 @@
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'cp2018' ); ?></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'grc2018' ); ?></button>
 			<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',

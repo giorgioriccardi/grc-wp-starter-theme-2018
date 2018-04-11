@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Camp_Pacific_2018
+ * @package GRC_2018
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {

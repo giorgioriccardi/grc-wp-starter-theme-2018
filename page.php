@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Camp_Pacific_2018
+ * @package GRC_2018
  */
 
 get_header(); ?>

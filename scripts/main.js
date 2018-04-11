@@ -3,7 +3,7 @@
 
 jQuery(document).ready(function ($) {
   // Custom jQuery goes here
-  console.info('test CP JS injection');
+  console.info('test GRC JS injection');
 });
 //# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZha2VfNGI0NTk4MTcuanMiXSwibmFtZXMiOlsialF1ZXJ5IiwiZG9jdW1lbnQiLCJyZWFkeSIsIiQiLCJjb25zb2xlIiwiaW5mbyJdLCJtYXBwaW5ncyI6Ijs7QUFBQUEsT0FBT0MsUUFBUCxFQUFpQkMsS0FBakIsQ0FBdUIsVUFBU0MsQ0FBVCxFQUFZO0FBQ2pDO0FBQ0FDLFVBQVFDLElBQVIsQ0FBYSxzQkFBYjtBQUNELENBSEQiLCJmaWxlIjoiZmFrZV80YjQ1OTgxNy5qcyIsInNvdXJjZXNDb250ZW50IjpbImpRdWVyeShkb2N1bWVudCkucmVhZHkoZnVuY3Rpb24oJCkge1xuICAvLyBDdXN0b20galF1ZXJ5IGdvZXMgaGVyZVxuICBjb25zb2xlLmluZm8oJ3Rlc3QgQ1AgSlMgaW5qZWN0aW9uJyk7XG59KTtcbiJdfQ==
 },{}]},{},[1])

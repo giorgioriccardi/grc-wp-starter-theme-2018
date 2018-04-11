@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package Camp_Pacific_2018
+ * @package GRC_2018
  */
 
 /**
@@ -14,11 +14,11 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function cp2018_jetpack_setup() {
+function grc2018_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => 'cp2018_infinite_scroll_render',
+		'render'    => 'grc2018_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
 
@@ -28,7 +28,7 @@ function cp2018_jetpack_setup() {
 	// Add theme support for Content Options.
 	add_theme_support( 'jetpack-content-options', array(
 		'post-details'    => array(
-			'stylesheet' => 'cp2018-style',
+			'stylesheet' => 'grc2018-style',
 			'date'       => '.posted-on',
 			'categories' => '.cat-links',
 			'tags'       => '.tags-links',
@@ -42,12 +42,12 @@ function cp2018_jetpack_setup() {
 		),
 	) );
 }
-add_action( 'after_setup_theme', 'cp2018_jetpack_setup' );
+add_action( 'after_setup_theme', 'grc2018_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function cp2018_infinite_scroll_render() {
+function grc2018_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :

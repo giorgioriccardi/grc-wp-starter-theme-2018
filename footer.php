@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Camp_Pacific_2018
+ * @package GRC_2018
  */
 
 ?>
@@ -15,14 +15,14 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'cp2018' ) ); ?>"><?php
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'grc2018' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'cp2018' ), 'WordPress' );
+				printf( esc_html__( 'Proudly powered by %s', 'grc2018' ), 'WordPress' );
 			?></a>
 			<span class="sep"> | </span>
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'cp2018' ), 'cp2018', '<a href="http://underscores.me/">Camp Pacific</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s.', 'grc2018' ), 'grc2018', '<a href="http://underscores.me/">GRC</a>' );
 			?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
