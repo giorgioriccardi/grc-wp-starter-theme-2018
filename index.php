@@ -17,6 +17,40 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
+			<!-- Slider main container -->
+			<div class="swiper-container">
+			    <!-- Additional required wrapper -->
+			    <div class="swiper-wrapper">
+			        <!-- Slides -->
+			        <div class="swiper-slide">
+								<img src="https://farm7.staticflickr.com/6213/6256961398_a484813abe_b.jpg" />
+								<p class="swiper-caption">Slide 1</p>
+							</div>
+			        <div class="swiper-slide">
+								<img src="https://farm7.staticflickr.com/6025/6012928351_d643e5a404_b.jpg" />
+								<p class="swiper-caption">Slide 2</p>
+							</div>
+			        <div class="swiper-slide">
+								<img src="https://farm7.staticflickr.com/6126/6007110789_bd7faaaa79_b.jpg" />
+								<p class="swiper-caption">Slide 3</p>
+							</div>
+							<div class="swiper-slide">
+								<img src="https://farm6.staticflickr.com/5159/5874760659_de4c00d585_b.jpg" />
+								<p class="swiper-caption">Slide 4</p>
+							</div>
+			    </div>
+
+			    <!-- If we need pagination -->
+			    <div class="swiper-pagination"></div>
+
+			    <!-- If we need navigation buttons -->
+			    <div class="swiper-button-prev"></div>
+			    <div class="swiper-button-next"></div>
+
+			    <!-- If we need scrollbar -->
+			    <!-- <div class="swiper-scrollbar"></div> -->
+			</div>
+
 		<?php
 		if ( have_posts() ) :
 
