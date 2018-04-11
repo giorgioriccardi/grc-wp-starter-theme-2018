@@ -1,1 +1,1 @@
-{"version":3,"names":[],"mappings":"","sources":["main.js"],"sourcesContent":["jQuery(document).ready(function($) {\n  // Custom jQuery goes here\n  console.info('test GRC JS injection');\n});\n"],"file":"main.js"}
+{"version":3,"names":[],"mappings":"","sources":["main.js"],"sourcesContent":["jQuery(document).ready(function($) {\n  // Custom jQuery goes here\n  console.info('test: GRC 2018 JS injection');\n});\n"],"file":"main.js"}

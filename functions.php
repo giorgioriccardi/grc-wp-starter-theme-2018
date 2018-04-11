@@ -119,10 +119,13 @@ add_action( 'widgets_init', 'grc2018_widgets_init' );
  * Enqueue scripts and styles.
  */
 function grc2018_scripts() {
-	// Enqueue Google Fonts Dosis and Kavivanar
+	// Enqueue Google Fonts Dosis and Kavivanar GRC
 	wp_enqueue_style( 'grc2018-fonts', 'https://fonts.googleapis.com/css?family=Dosis:400,700|Kavivanar' );
 
 	wp_enqueue_style( 'grc2018-style', get_stylesheet_uri() );
+
+	// Custom GRC JS
+	wp_enqueue_script( 'grc2018-main', get_template_directory_uri() . '/scripts/main.js', array(), '20180410', true );
 
 	wp_enqueue_script( 'grc2018-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -147,7 +150,7 @@ require get_template_directory() . '/inc/template-tags.php';
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-functions.php'; // former extra.php
+require get_template_directory() . '/inc/template-functions.php'; // GRC former extra.php
 
 /**
  * Customizer additions.
