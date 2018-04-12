@@ -31,11 +31,11 @@ get_header(); ?>
 								<p class="swiper-caption">Slide 2</p>
 							</div>
 			        <div class="swiper-slide">
-								<img src="https://farm7.staticflickr.com/6126/6007110789_bd7faaaa79_b.jpg" />
+								<img src="https://farm6.staticflickr.com/5159/5874760659_de4c00d585_b.jpg" />
 								<p class="swiper-caption">Slide 3</p>
 							</div>
 							<div class="swiper-slide">
-								<img src="https://farm6.staticflickr.com/5159/5874760659_de4c00d585_b.jpg" />
+								<img src="https://farm8.staticflickr.com/7384/8730654121_05bca33388_z.jpg" />
 								<p class="swiper-caption">Slide 4</p>
 							</div>
 			    </div>
