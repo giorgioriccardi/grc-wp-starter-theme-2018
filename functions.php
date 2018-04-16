@@ -174,6 +174,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  */
 
 function grc2018_swiper() {
+
 	if ( ! is_admin() ) {
 
 		// Enqueue SwiperSlider JavaScript
@@ -183,39 +184,9 @@ function grc2018_swiper() {
 		// Enqueue SwiperSlider Stylesheet
 		wp_register_style( 'swiper-style', get_template_directory_uri() . '/css/swiper.min.css', 'all' );
 		wp_enqueue_style( 'swiper-style' );
-
-		// SwiperSlider custom settings
-		add_action('wp_footer', 'grc2018_swiper_settings');
-
-		function grc2018_swiper_settings() { ?>
-			<script>
-			  var mySwiper = new Swiper('.swiper-container', {
-			      // Optional parameters
-			      // direction: 'vertical',
-			      direction: 'horizontal',
-			      loop: true,
-
-			      // If we need pagination
-			      pagination: {
-			          el: '.swiper-pagination',
-			      },
-
-			      // Navigation arrows
-			      navigation: {
-			          nextEl: '.swiper-button-next',
-			          prevEl: '.swiper-button-prev',
-			      },
-
-			      // And if we need scrollbar
-			      scrollbar: {
-			          el: '.swiper-scrollbar',
-			      },
-			  })
-			</script>
-		<?php
-		}
-
+		
 	}
+
 }
 
 add_action('init', 'grc2018_swiper');
