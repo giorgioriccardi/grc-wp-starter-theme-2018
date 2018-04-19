@@ -3,6 +3,21 @@
  */
 jQuery(document).ready(function($) {
   console.info('test: GRC 2018 jQuery injection');
+
+  // Masonry custom settings
+
+  $('.grid').masonry({
+    // options
+    itemSelector: '.grid-item',
+    isAnimated: true,
+    columnWidth: 200
+  });
+  // $('#masonry-index').masonry({
+  // 	itemSelector: '.index-post-container',
+  // });
+
+  // end Masonry custom settings
+
 });
 
 /**

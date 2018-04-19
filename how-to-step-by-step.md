@@ -34,10 +34,14 @@ nar' );
 ## Header styles and functionality
 .... in progress
 
-### Enqueue Swiper Slider
+### Swiper Slider
 [Getting Started With Swiper](http://idangero.us/swiper/).
 
-Add this code into **functions.php**:
+Add `swiper.min.js` into **./js/** folder;
+
+Add `swiper.min.css` into **./css/** folder;
+
+Enqueue Swiper Slider, add this code into **functions.php**:
 ```
 /**
  * SwiperSlider: modern mobile touch slider with hardware accelerated transitions and native behavior
@@ -143,4 +147,36 @@ Output the slider into **index.php**
 		get_template_part( 'template-parts/swiper-slider-post' );
 	}
 ?>
+```
+
+### Masonry grid layout
+[Masonry](https://masonry.desandro.com/).
+
+Add 'masonry.pkgd.min.js' into **./js/** folder;
+
+Enqueue Masonry, add this code into **functions.php**:
+```
+/**
+ * Masonry: a JavaScript grid layout library.
+ * It works by placing elements in optimal position based on available vertical space,
+ * sort of like a mason fitting stones in a wall.
+ * https://masonry.desandro.com/
+ */
+
+function grc2018_masonry() {
+    wp_enqueue_script( 'jquery-masonry' );
+}
+add_action( 'wp_enqueue_scripts', 'grc2018_masonry' );
+```
+
+Implement Masonry script into **./scripts/main.js**
+```
+// Masonry custom settings
+$('.grid').masonry({
+	// options
+	itemSelector: '.grid-item',
+	isAnimated: true,
+	columnWidth: 200
+});
+// end Masonry custom settings
 ```

@@ -169,7 +169,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  */
 
 /**
- * SwiperSlider: modern mobile touch slider with hardware accelerated transitions and native behavior
+ * Swiper Slider: a modern mobile touch slider with hardware accelerated transitions and native behavior
  * http://idangero.us/swiper/
  */
 
@@ -178,15 +178,28 @@ function grc2018_swiper() {
 	if ( ! is_admin() ) {
 
 		// Enqueue SwiperSlider JavaScript
-		wp_register_script('js_swiper', get_template_directory_uri(). '/js/swiper.min.js', array() );
-		wp_enqueue_script('js_swiper');
+		wp_register_script( 'js_swiper', get_template_directory_uri(). '/js/swiper.min.js', array() );
+		wp_enqueue_script( 'js_swiper' );
 
 		// Enqueue SwiperSlider Stylesheet
 		wp_register_style( 'swiper-style', get_template_directory_uri() . '/css/swiper.min.css', 'all' );
 		wp_enqueue_style( 'swiper-style' );
-		
+
 	}
 
 }
 
-add_action('init', 'grc2018_swiper');
+add_action( 'init', 'grc2018_swiper' );
+
+/**
+ * Masonry: a JavaScript grid layout library.
+ * It works by placing elements in optimal position based on available vertical space,
+ * sort of like a mason fitting stones in a wall.
+ * https://masonry.desandro.com/
+ */
+
+function grc2018_masonry() {
+    wp_enqueue_script( 'jquery-masonry' );
+}
+
+add_action( 'wp_enqueue_scripts', 'grc2018_masonry' );
