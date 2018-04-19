@@ -9,7 +9,9 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<!-- <article id="post-<?php // the_ID(); ?>" <?php // post_class(); ?>> -->
+<!-- GRC Masonry Grid class -->
+<article id="post-<?php the_ID(); ?>" <?php post_class('grid-item'); ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :

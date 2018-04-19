@@ -15,17 +15,23 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
 
-			<!-- Swiper Slider -->
-			<?php
-				// Check if this is the front page and that it is not page 2 or higher
-				if ( is_front_page() && !is_paged() ) {
-					// Add featured content slider
-					get_template_part( 'template-parts/swiper-slider-post' );
-				}
-			?>
-			<!-- end Swiper Slider -->
+		<!-- Swiper Slider -->
+		<?php
+			// Check if this is the front page and that it is not page 2 or higher
+			if ( is_front_page() && !is_paged() ) {
+				// Add featured content slider
+				get_template_part( 'template-parts/swiper-slider-post' );
+			}
+		?>
+		<!-- end Swiper Slider -->
+
+		<!-- Masonry Grid -->
+		<main id="main" class="site-main grid">
+
+			<!-- GRC add empty container only for masonry-grid -->
+			<!-- .grid-sizer empty element, only used for element sizing -->
+  		<div class="grid-sizer"></div>
 
 		<?php
 		if ( have_posts() ) :
@@ -50,7 +56,8 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			// GRC Move posts navigation outside <main> container
+			// the_posts_navigation();
 
 		else :
 
@@ -59,6 +66,11 @@ get_header(); ?>
 		endif; ?>
 
 		</main><!-- #main -->
+		<!-- end Masonry Grid -->
+
+		<!-- GRC Move posts navigation outside <main> container -->
+		<?php the_posts_navigation(); ?>
+
 	</div><!-- #primary -->
 
 <?php
