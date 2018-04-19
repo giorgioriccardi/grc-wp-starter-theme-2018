@@ -1,0 +1,26 @@
+/**
+ * Masonry Grid
+ * https://masonry.desandro.com/
+ * https://masonry.desandro.com/extras.html#bootstrap
+ */
+
+.grid {
+	/* 4 columns by default */
+	.grid-sizer {
+		width: 25%;
+	}
+
+	.grid-item {
+		width: rem(350);
+		border: 1px $grey solid;
+		float: left;
+		margin: 0 rem(20) rem(20) 0;
+	}
+}
+
+.grid .entry-title,
+.grid .entry-meta,
+.grid .entry-content,
+.grid .entry-footer {
+	margin: rem(20)
+}
