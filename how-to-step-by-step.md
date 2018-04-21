@@ -1,4 +1,4 @@
-# How to, step by step from the initial `_s`
+# How to build a WP theme from scratch with `_s`
 
 This document assumes that the [Pantheon](https://pantheon.io/) (or any other given dev environment) is already up and running and that [Yeoman](https://bitbucket.org/giorgioriccardi/templates-linters.git) template is installed and ready to be compiled in the new starter theme root.
 
@@ -20,24 +20,20 @@ This document assumes that the [Pantheon](https://pantheon.io/) (or any other gi
 	wp_enqueue_style( 'grc2018-fonts', 'https://fonts.googleapis.com/css?family=Dosis:400,700|Kaviva
 	nar' );
 	```
-* Setup the proper `_scss` file to render the new fonts in `./app/styles/variables-site/_typography.scss`
+* Setup the proper `_scss` file to render the new fonts in `/app/styles/variables-site/_typography.scss`
 * ~~Adding control for web fonts and improve performance with preconnect for Google Fonts is skipped for this initial phase of development~~
 * Create responsive typography:
-	* in `./app/styles/typography/_typography.scss` we implement a media query to make the font slightly smaller below `< 767px` screen width
+	* in `/app/styles/typography/_typography.scss` we implement a media query to make the font slightly smaller below `< 767px` screen width
 	* `@include font-size(0.9);`
 	* `@media screen and (min-width: 768px) { @include font-size(1); }`
-	* create each size for `H1` to `H6` in `./app/styles/typography/_headings.scss`
+	* create each size for `H1` to `H6` in `/app/styles/typography/_headings.scss`
 * Initial setup for responsive layout:
 	* change the order how styles get rendered by the WP theme, making sure that the content styles `@import "site/site"` are imported before the widgets styles `@import "site/secondary/widgets"`
-	* create a new sass file under `/layout/_global.scss` and add it in the `/site/_site.scss` as `@import "../layout/global"`
+	* create a new sass file under `/layout/_global.scss` and add it in the `/site/_site.scss` as `@import "/layout/global"`
 	* create some initial mediaquery variables in `/variables-site/_structures.scss` such as `$query__small: 600px` and `$query__medium: 900px`
 	* assign some mediaquery rules to content in `/layout/_global.scss`
 
 ## Header styles and functionality
-
-* Create a sass folder/file just for the header
-	* `/site/header/_header.scss` and add it in the `/site/_site.scss` as `@import "header/header"`
-	* implement basic header's styles in `/site/header/_header.scss`
 
 ### Custom Header feature
 
@@ -55,13 +51,42 @@ is stored as a comment on top of `/inc/custom-header.php`
 	</figure><!-- .header-image -->
 	<?php endif; // End header image check. ?>
 	```
-* ... to TBC ...
+
+* Create a sass folder/file just for the header
+	* `/site/header/_header.scss` and add it in the `/site/_site.scss` as `@import "header/header"`
+	* implement basic header's styles in `/site/header/_header.scss`
+
+### Menus
+
+* Register 2 menus into **functions.php**
+	```
+	register_nav_menus( array(
+		'primary' => esc_html__( 'Primary', 'grc2018' ),
+		'secondary' => esc_html__( 'Secondary', 'grc2018' ),
+	) );
+	```
+* Make sure the main menu is ouput into **header.php**
+	```
+	<nav id="site-navigation" class="main-navigation">
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'grc2018' ); ?></button>
+		<?php
+			wp_nav_menu( array(
+				'theme_location' => 'primary',
+				'menu_id'        => 'primary-menu',
+			) );
+		?>
+	</nav><!-- #site-navigation -->
+	```
+* Clear all the `_s` default menu styles in `/navigation/_menus.scss`
+* Create a sass file just for the header menu `_header-menu.scss`
+	* `/site/header/_header-menu.scss` and import it in `/site/header/_header.scss` with `@import "header-menu"` at the very bottom
+	* implement basic header's styles in `/site/header/_header-menu.scss`
 
 ### Swiper Slider
 [Getting Started with Swiper](http://idangero.us/swiper/).
 
-* Add `swiper.min.js` into **./js/** folder;
-* Add `swiper.min.css` into **./css/** folder;
+* Add `swiper.min.js` into **/js/** folder;
+* Add `swiper.min.css` into **/css/** folder;
 * Enqueue Swiper Slider, add this code into **functions.php**:
 	```
 	/**
@@ -81,7 +106,7 @@ is stored as a comment on top of `/inc/custom-header.php`
 	}
 	add_action('init', 'grc2018_swiper');
 	```
-* Implement Swiper script into **./scripts/main.js**
+* Implement Swiper script into **/scripts/main.js**
 	```
 	// SwiperSlider custom settings
 	<script>
@@ -185,7 +210,7 @@ is stored as a comment on top of `/inc/custom-header.php`
 	}
 	add_action( 'wp_enqueue_scripts', 'grc2018_masonry' );
 	```
-* Implement Masonry script into **./scripts/main.js**
+* Implement Masonry script into **/scripts/main.js**
 	```
 	// Masonry custom settings
 	$('.grid').masonry({
@@ -206,7 +231,7 @@ is stored as a comment on top of `/inc/custom-header.php`
 	<!-- .grid-sizer empty element, only used for element sizing -->
 	<div class="grid-sizer"></div>
 	```
-* Add the class `.grid-item` to each post `<article id="post-<?php the_ID(); ?>" <?php post_class('grid-item'); ?>>` into **./template-parts/content.php**
+* Add the class `.grid-item` to each post `<article id="post-<?php the_ID(); ?>" <?php post_class('grid-item'); ?>>` into **/template-parts/content.php**
 * create sass file for Masonry Grid
 * `/elements/_masonry-grid.scss` and add it in `style.scss` as `@import "elements/masonry-grid"`
 * implement basic header's styles in `/elements/_masonry-grid.scss`
