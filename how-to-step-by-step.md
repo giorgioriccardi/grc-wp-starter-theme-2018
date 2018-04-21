@@ -5,8 +5,7 @@ This document assumes that the [Pantheon](https://pantheon.io/) (or any other gi
 ## Initial front-dev setup in WordPress Dashboard
 
 * Create a starter theme package using [Underscores `_s`](https://underscores.me/),
-	* follow instructions on the doc page, just make sure to 
-	select all the advanced options available, especially `SASS` files.
+	* Follow instructions on the doc page, just make sure to select all the advanced options available, especially `SASS` files.
 * Give it a meaningful name, for this prototype is `GRC 2018` (slug: `grc2018`).
 
 **~~For the sake of this prototype I will not support `WooCommerce` features right away~~**.
@@ -28,10 +27,10 @@ This document assumes that the [Pantheon](https://pantheon.io/) (or any other gi
 	* `@media screen and (min-width: 768px) { @include font-size(1); }`
 	* create each size for `H1` to `H6` in `/app/styles/typography/_headings.scss`
 * Initial setup for responsive layout:
-	* change the order how styles get rendered by the WP theme, making sure that the content styles `@import "site/site"` are imported before the widgets styles `@import "site/secondary/widgets"`
-	* create a new sass file under `/layout/_global.scss` and add it in the `/site/_site.scss` as `@import "/layout/global"`
-	* create some initial mediaquery variables in `/variables-site/_structures.scss` such as `$query__small: 600px` and `$query__medium: 900px`
-	* assign some mediaquery rules to content in `/layout/_global.scss`
+	* Change the order how styles get rendered by the WP theme, making sure that the content styles `@import "site/site"` are imported before the widgets styles `@import "site/secondary/widgets"`
+	* Create a new sass file under `/layout/_global.scss` and add it in the `/site/_site.scss` as `@import "/layout/global"`
+	* Create some initial mediaquery variables in `/variables-site/_structures.scss` such as `$query__small: 600px` and `$query__medium: 900px`
+	* Assign some mediaquery rules to content in `/layout/_global.scss`
 
 ## Header styles and functionality
 
@@ -54,7 +53,7 @@ is stored as a comment on top of `/inc/custom-header.php`
 
 * Create a sass folder/file just for the header
 	* `/site/header/_header.scss` and add it in the `/site/_site.scss` as `@import "header/header"`
-	* implement basic header's styles in `/site/header/_header.scss`
+	* Implement basic header's styles in `/site/header/_header.scss`
 
 ### Menus
 
@@ -80,7 +79,20 @@ is stored as a comment on top of `/inc/custom-header.php`
 * Clear all the `_s` default menu styles in `/navigation/_menus.scss`
 * Create a sass file just for the header menu `_header-menu.scss`
 	* `/site/header/_header-menu.scss` and import it in `/site/header/_header.scss` with `@import "header-menu"` at the very bottom
-	* implement basic header's styles in `/site/header/_header-menu.scss`
+	* Implement basic header's styles in `/site/header/_header-menu.scss`
+* Implement JavaScript logic for the menu, if different from the original provided by `_s`
+* We use the TwentySeventeen `navigation.js` script and we replace all the original from `_s`
+* Into **functions.php** right after the theme-navigation enqueue script we implement this code:
+	```
+	wp_enqueue_script( 'grc2018-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+	// TwentySeventeen localized script
+	wp_localize_script( 'grc2018-navigation', 'grc2018ScreenReaderText',
+		array(
+			'aria-expand'   => __( 'Expand child menu', 'grc2018' ),
+			'collapse' => __( 'Collapse child menu', 'grc2018' )
+		)
+	);
+	```
 
 ### Swiper Slider
 [Getting Started with Swiper](http://idangero.us/swiper/).
@@ -136,7 +148,7 @@ is stored as a comment on top of `/inc/custom-header.php`
 	// end SwiperSlider custom settings
 	```
 * Create a file **swiper-slider-post.php**
-* paste in this code:
+* Paste in this code:
 	```
 	<!-- Swiper Slider main container -->
 	<div class="swiper-container">
@@ -232,9 +244,9 @@ is stored as a comment on top of `/inc/custom-header.php`
 	<div class="grid-sizer"></div>
 	```
 * Add the class `.grid-item` to each post `<article id="post-<?php the_ID(); ?>" <?php post_class('grid-item'); ?>>` into **/template-parts/content.php**
-* create sass file for Masonry Grid
+* Create sass file for Masonry Grid
 * `/elements/_masonry-grid.scss` and add it in `style.scss` as `@import "elements/masonry-grid"`
-* implement basic header's styles in `/elements/_masonry-grid.scss`
+* Implement basic header's styles in `/elements/_masonry-grid.scss`
 	```
 	/**
 	 * Masonry Grid

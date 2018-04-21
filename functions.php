@@ -128,7 +128,15 @@ function grc2018_scripts() {
 	// Custom GRC JS
 	wp_enqueue_script( 'grc2018-main', get_template_directory_uri() . '/scripts/main.js', array(), '20180410', true );
 
-	wp_enqueue_script( 'grc2018-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'grc2018-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+
+	// TwentySeventeen localized script
+	wp_localize_script( 'grc2018-navigation', 'grc2018ScreenReaderText',
+		array(
+			'aria-expand'   => __( 'Expand child menu', 'grc2018' ),
+			'collapse' => __( 'Collapse child menu', 'grc2018' )
+		)
+	);
 
 	wp_enqueue_script( 'grc2018-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
