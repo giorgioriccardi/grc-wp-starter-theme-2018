@@ -42,10 +42,10 @@ if ( ! function_exists( 'grc2018_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'grc2018' ),
-			'secondary' => esc_html__( 'Secondary', 'grc2018' ),
+			'social' => esc_html__( 'Social Links Menu', 'grc2018' ),
 		) );
 
 		/*
@@ -130,7 +130,7 @@ function grc2018_scripts() {
 
 	wp_enqueue_script( 'grc2018-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
 
-	// TwentySeventeen localized script
+	// from TwentySeventeen localized script
 	wp_localize_script( 'grc2018-navigation', 'grc2018ScreenReaderText',
 		array(
 			'aria-expand'   => __( 'Expand child menu', 'grc2018' ),
@@ -176,6 +176,12 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * GRC Functions.
  */
+
+ /**
+  * SVG icons functions and filters.
+  * Nicked from TwentySeventeen
+  */
+ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 /**
  * Swiper Slider: a modern mobile touch slider with hardware accelerated transitions and native behavior

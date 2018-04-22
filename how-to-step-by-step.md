@@ -61,9 +61,12 @@ is stored as a comment on top of `/inc/custom-header.php`
 	```
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'grc2018' ),
-		'secondary' => esc_html__( 'Secondary', 'grc2018' ),
+		'social' => esc_html__( 'Social Links Menu', 'grc2018' ),
 	) );
 	```
+
+#### Primary Menu
+
 * Make sure the main menu is ouput into **header.php**
 	```
 	<nav id="site-navigation" class="main-navigation">
@@ -94,6 +97,53 @@ is stored as a comment on top of `/inc/custom-header.php`
 	);
 	```
 
+
+#### Footer Social Links Menu
+
+* Create a file **/inc/icon-functions.php**
+* Enqueue the above file into **functions.php**
+	```
+	 /**
+	  * SVG icons functions and filters.
+	  * Nicked from TwentySeventeen
+	  */
+	 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+	```
+
+* Implement PHP SVG Icons logic, I used the code from the TwentySeventeen theme
+* Copy just one svg file with a full set of icons into `/assets/images/svg-icons.svg`
+* Move the portion of code for the site-info into a separate template **/template-parts/footer/site-info.php**
+* Add this snippet into **footer.php**
+	```
+	<!-- GRC footer Social Links Menu -->
+	<!-- Nicked from TwentySeventeen -->
+	<div class="wrap">
+		<?php
+		if ( has_nav_menu( 'social' ) ) :
+		?>
+			<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'grc2018' ); ?>">
+				<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'social',
+							'menu_class'     => 'social-links-menu',
+							'depth'          => 1,
+							'link_before'    => '<span class="screen-reader-text">',
+							'link_after'     => '</span>' . grc2018_get_svg( array( 'icon' => 'chain' ) ),
+						)
+					);
+				?>
+			</nav><!-- .social-navigation -->
+		<?php
+		endif;
+
+		get_template_part( 'template-parts/footer/site', 'info' );
+		?>
+	</div><!-- .wrap -->
+	```
+* Implement styles into `/styles/site/footer/_footer.sass`
+* Enqueue the above file in `style.scss` as `@import "footer/footer"`
+
 ### Swiper Slider
 [Getting Started with Swiper](http://idangero.us/swiper/).
 
@@ -110,7 +160,6 @@ is stored as a comment on top of `/inc/custom-header.php`
 			// Enqueue SwiperSlider JavaScript
 			wp_register_script('js_swiper', get_template_directory_uri(). '/js/swiper.min.js', array() );
 			wp_enqueue_script('js_swiper');
-
 			// Enqueue SwiperSlider Stylesheet
 			wp_register_style( 'swiper-style', get_template_directory_uri() . '/css/swiper.min.css', 'all' );
 			wp_enqueue_style( 'swiper-style' );
@@ -118,6 +167,7 @@ is stored as a comment on top of `/inc/custom-header.php`
 	}
 	add_action('init', 'grc2018_swiper');
 	```
+
 * Implement Swiper script into **/scripts/main.js**
 	```
 	// SwiperSlider custom settings
@@ -147,7 +197,8 @@ is stored as a comment on top of `/inc/custom-header.php`
 	</script>
 	// end SwiperSlider custom settings
 	```
-* Create a file **swiper-slider-post.php**
+
+* Create a file **/template-parts/header/swiper-slider-post.php**
 * Paste in this code:
 	```
 	<!-- Swiper Slider main container -->
@@ -199,12 +250,14 @@ is stored as a comment on top of `/inc/custom-header.php`
 		// Check if this is the front page and that it is not page 2 or higher
 		if ( is_front_page() && !is_paged() ) {
 			// Add featured content slider
-			get_template_part( 'template-parts/swiper-slider-post' );
+			get_template_part( 'template-parts/header/swiper-slider-post' );
 		}
 	?>
 	```
 
 ## Main Content
+
+**Note** Move all the template-parts into sub-folders for header, navigation, page, post, footer
 
 ### Masonry grid layout
 [Getting Started with Masonry](https://masonry.desandro.com/).
@@ -222,6 +275,7 @@ is stored as a comment on top of `/inc/custom-header.php`
 	}
 	add_action( 'wp_enqueue_scripts', 'grc2018_masonry' );
 	```
+
 * Implement Masonry script into **/scripts/main.js**
 	```
 	// Masonry custom settings
@@ -245,7 +299,7 @@ is stored as a comment on top of `/inc/custom-header.php`
 	```
 * Add the class `.grid-item` to each post `<article id="post-<?php the_ID(); ?>" <?php post_class('grid-item'); ?>>` into **/template-parts/content.php**
 * Create sass file for Masonry Grid
-* `/elements/_masonry-grid.scss` and add it in `style.scss` as `@import "elements/masonry-grid"`
+* `/elements/_masonry-grid.scss` and enqueue it in `style.scss` as `@import "elements/masonry-grid"`
 * Implement basic header's styles in `/elements/_masonry-grid.scss`
 	```
 	/**

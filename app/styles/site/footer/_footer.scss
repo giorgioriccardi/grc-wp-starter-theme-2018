@@ -1,0 +1,59 @@
+/* Footer Social nav */
+
+.site-footer {
+	position: relative;
+	padding: 1em;
+	font-family: $font__sans;
+	color: #fff;
+	background-color: $color__skin;
+	text-align: center;
+
+	@media screen and (min-width: $query__small) {
+		padding: 1em 2em;
+	}
+}
+
+.social-navigation {
+	font-size: rem(16);
+	font-size: 1rem;
+	margin-bottom: 1em;
+
+	ul {
+		display: flex;
+		justify-content: center;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		margin-bottom: 0;
+		margin-left: 0;
+
+		li {
+			display: inline;
+		}
+
+		a {
+			background-color: $grey-dark;
+			-webkit-border-radius: rem(40);
+			border-radius: rem(40);
+			color: $white;
+			display: inline-block;
+			height: rem(40);
+			margin: 0 1em 0.5em 0;
+			text-align: center;
+			width: rem(40);
+
+			&:hover,
+			&:focus {
+				background-color: $red;
+				text-decoration: underline;
+			}
+		}
+
+		.icon {
+			height: rem(40);
+			top: rem(12);
+			width: rem(20);
+			vertical-align: top;
+		}
+	}
+}

@@ -14,17 +14,32 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'grc2018' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'grc2018' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
+
+		<!-- GRC footer Social Links Menu -->
+		<!-- Nicked from TwentySeventeen -->
+		<div class="wrap">
 			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'grc2018' ), 'grc2018', '<a href="http://underscores.me/">GRC</a>' );
+			if ( has_nav_menu( 'social' ) ) :
 			?>
-		</div><!-- .site-info -->
+				<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'grc2018' ); ?>">
+					<?php
+						wp_nav_menu(
+							array(
+								'theme_location' => 'social',
+								'menu_class'     => 'social-links-menu',
+								'depth'          => 1,
+								'link_before'    => '<span class="screen-reader-text">',
+								'link_after'     => '</span>' . grc2018_get_svg( array( 'icon' => 'chain' ) ),
+							)
+						);
+					?>
+				</nav><!-- .social-navigation -->
+			<?php
+			endif;
+
+			get_template_part( 'template-parts/footer/site', 'info' );
+			?>
+		</div><!-- .wrap -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
