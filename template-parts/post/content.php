@@ -28,10 +28,26 @@
 			?>
 		</div><!-- .entry-meta -->
 		<?php
-		endif; ?>
+	endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php grc2018_post_thumbnail(); ?>
+	<!-- GRC verifiy if featured image exists -->
+	<?php
+	// if it is on the index page wrap it in a link
+	if ( has_post_thumbnail() && ! is_single() ) : ?>
+		<figure class="featured-image">
+				<a href="<?php the_permalink(); ?>">
+					<?php the_post_thumbnail('grc2018-featured-image'); ?>
+				</a>
+		</figure>
+	<?php
+	// if it is a single post do not link to the post itself
+	elseif ( has_post_thumbnail() ) : ?>
+		<figure class="featured-image full-bleed">
+			<?php the_post_thumbnail('grc2018-featured-image'); ?>
+		</figure>
+	<?php
+	endif; ?><!-- end if featured image exists -->
 
 	<div class="entry-content">
 		<?php

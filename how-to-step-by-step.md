@@ -168,6 +168,10 @@ is stored as a comment on top of `/inc/custom-header.php`
 	add_action('init', 'grc2018_swiper');
 	```
 
+* Add image support into **functions.php**
+	```
+	add_image_size( 'grc2018-swiper-slide-image', 2000, 600, true );
+	```
 * Implement Swiper script into **/scripts/main.js**
 	```
 	// SwiperSlider custom settings
@@ -222,7 +226,7 @@ is stored as a comment on top of `/inc/custom-header.php`
 					if ( has_post_thumbnail() ) { ?>
 						<div class="swiper-slide">
 							<a href="<?php echo get_permalink(); ?>" title="<?php echo the_title(); ?>" rel="bookmark">
-								<?php the_post_thumbnail('feature-slider'); ?>
+								<?php the_post_thumbnail('grc2018-swiper-slide-image'); ?>
 								<p class="swiper-caption"><?php the_title(); ?></p>
 							</a>
 						</div>
@@ -327,3 +331,30 @@ is stored as a comment on top of `/inc/custom-header.php`
 	}
 	```
 
+
+### Post Featured Images
+
+* Add image support into **functions.php**
+	```
+	add_image_size( 'grc2018-featured-image', 2000, 1200, true );
+	```
+* Output featured image just below the `<header>` in `/template-parts/content.php`
+	```
+	<!-- GRC verifiy if featured image exists -->
+	<?php
+	// if it is on the index page wrap it in a link
+	if ( has_post_thumbnail() && ! is_single() ) : ?>
+		<figure class="featured-image">
+				<a href="<?php the_permalink(); ?>">
+					<?php the_post_thumbnail('grc2018-featured-image'); ?>
+				</a>
+		</figure>
+	<?php
+	// if it is a single post do not link to the post itself
+	elseif ( has_post_thumbnail() ) : ?>
+		<figure class="featured-image full-bleed">
+			<?php the_post_thumbnail('grc2018-featured-image'); ?>
+		</figure>
+	<?php
+	endif; ?><!-- end if featured image exists -->
+	```

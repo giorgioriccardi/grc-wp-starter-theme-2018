@@ -20,3 +20,18 @@
 	clear: both;
 	margin: 0 0 1.5em;
 }
+
+/* Single Post and Swiper Slider  Featured Images */
+
+.full-bleed,
+.swiper-slide {
+	width: 100vw;
+	max-height: rem(1200);
+	margin-top: 1em;
+	overflow: hidden;
+
+	img {
+		display: block;
+		margin: 0 auto;
+	}
+}

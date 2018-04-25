@@ -42,6 +42,11 @@ if ( ! function_exists( 'grc2018_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		// GRC force max image size
+		add_image_size( 'grc2018-featured-image', 2000, 1200, true );
+
+		add_image_size( 'grc2018-swiper-slide-image', 2000, 600, true );
+
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'grc2018' ),

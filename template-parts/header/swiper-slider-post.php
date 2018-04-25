@@ -26,7 +26,7 @@
 				if ( has_post_thumbnail() ) { ?>
 					<div class="swiper-slide">
 						<a href="<?php echo get_permalink(); ?>" title="<?php echo the_title(); ?>" rel="bookmark">
-							<?php the_post_thumbnail(); ?>
+							<?php the_post_thumbnail('grc2018-swiper-slide-image'); ?>
 							<p class="swiper-caption"><?php the_title(); ?></p>
 						</a>
 					</div>

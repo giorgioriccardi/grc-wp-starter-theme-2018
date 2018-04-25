@@ -1,5 +1,11 @@
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
 
+// $size__max-width: 100vw;
+$size__max-width: rem(1200);
+
+$size__ratio-small: 30%;
+$size__ratio-large: 60%;
+
 $query__small: 600px;
 $query__medium: 900px;
