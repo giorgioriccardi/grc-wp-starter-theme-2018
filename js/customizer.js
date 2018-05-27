@@ -39,4 +39,14 @@
 			}
 		} );
 	} );
+
+	// GRC
+	// Toggle for Swiper Slider on Homepage
+	// wp.customize( 'swiper_slider', function( value ) {
+	// 	value.bind( function( to ) {
+	// 		$( '.swiper-container' ).css( {
+	// 			'display': 'none'
+	// 		} );
+	// } );
+
 } )( jQuery );
