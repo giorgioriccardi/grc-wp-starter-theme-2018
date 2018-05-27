@@ -42,9 +42,15 @@ if ( ! function_exists( 'grc2018_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+		// GRC force max image size
+		add_image_size( 'grc2018-featured-image', 2000, 1200, true );
+
+		add_image_size( 'grc2018-swiper-slide-image', 2000, 600, true );
+
+		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'grc2018' ),
+			'primary' => esc_html__( 'Primary', 'grc2018' ),
+			'social' => esc_html__( 'Social Links Menu', 'grc2018' ),
 		) );
 
 		/*
@@ -127,7 +133,15 @@ function grc2018_scripts() {
 	// Custom GRC JS
 	wp_enqueue_script( 'grc2018-main', get_template_directory_uri() . '/scripts/main.js', array(), '20180410', true );
 
-	wp_enqueue_script( 'grc2018-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'grc2018-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+
+	// from TwentySeventeen localized script
+	wp_localize_script( 'grc2018-navigation', 'grc2018ScreenReaderText',
+		array(
+			'aria-expand'   => __( 'Expand child menu', 'grc2018' ),
+			'collapse' => __( 'Collapse child menu', 'grc2018' )
+		)
+	);
 
 	wp_enqueue_script( 'grc2018-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -168,8 +182,14 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * GRC Functions.
  */
 
+ /**
+  * SVG icons functions and filters.
+  * Nicked from TwentySeventeen
+  */
+ require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
 /**
- * SwiperSlider: modern mobile touch slider with hardware accelerated transitions and native behavior
+ * Swiper Slider: a modern mobile touch slider with hardware accelerated transitions and native behavior
  * http://idangero.us/swiper/
  */
 
@@ -178,15 +198,28 @@ function grc2018_swiper() {
 	if ( ! is_admin() ) {
 
 		// Enqueue SwiperSlider JavaScript
-		wp_register_script('js_swiper', get_template_directory_uri(). '/js/swiper.min.js', array() );
-		wp_enqueue_script('js_swiper');
+		wp_register_script( 'js_swiper', get_template_directory_uri(). '/js/swiper.min.js', array() );
+		wp_enqueue_script( 'js_swiper' );
 
 		// Enqueue SwiperSlider Stylesheet
 		wp_register_style( 'swiper-style', get_template_directory_uri() . '/css/swiper.min.css', 'all' );
 		wp_enqueue_style( 'swiper-style' );
-		
+
 	}
 
 }
 
-add_action('init', 'grc2018_swiper');
+add_action( 'init', 'grc2018_swiper' );
+
+/**
+ * Masonry: a JavaScript grid layout library.
+ * It works by placing elements in optimal position based on available vertical space,
+ * sort of like a mason fitting stones in a wall.
+ * https://masonry.desandro.com/
+ */
+
+function grc2018_masonry() {
+    wp_enqueue_script( 'jquery-masonry' );
+}
+
+add_action( 'wp_enqueue_scripts', 'grc2018_masonry' );

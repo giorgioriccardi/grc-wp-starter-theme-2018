@@ -15,17 +15,23 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
 
-			<!-- Swiper Slider -->
-			<?php
-				// Check if this is the front page and that it is not page 2 or higher
-				if ( is_front_page() && !is_paged() ) {
-					// Add featured content slider
-					get_template_part( 'template-parts/swiper-slider-post' );
-				}
-			?>
-			<!-- end Swiper Slider -->
+		<!-- Swiper Slider -->
+		<?php
+			// Check if this is the front page and that it is not page 2 or higher
+			if ( is_front_page() && !is_paged() ) {
+				// Add featured content slider
+				get_template_part( 'template-parts/header/swiper-slider-post' );
+			}
+		?>
+		<!-- end Swiper Slider -->
+
+		<!-- Masonry Grid -->
+		<main id="main" class="site-main grid">
+
+			<!-- GRC add empty container only for masonry-grid -->
+			<!-- .grid-sizer empty element, only used for element sizing -->
+  		<div class="grid-sizer"></div>
 
 		<?php
 		if ( have_posts() ) :
@@ -46,19 +52,25 @@ get_header(); ?>
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+				get_template_part( 'template-parts/post/content', get_post_format() );
 
 			endwhile;
 
-			the_posts_navigation();
+			// GRC Move posts navigation outside <main> container
+			// the_posts_navigation();
 
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			get_template_part( 'template-parts/post/content', 'none' );
 
 		endif; ?>
 
 		</main><!-- #main -->
+		<!-- end Masonry Grid -->
+
+		<!-- GRC Move posts navigation outside <main> container -->
+		<?php the_posts_navigation(); ?>
+
 	</div><!-- #primary -->
 
 <?php
