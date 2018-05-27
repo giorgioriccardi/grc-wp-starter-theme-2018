@@ -1,6 +1,12 @@
 # How to build a WP theme from scratch with `_s`
 
+<<<<<<< HEAD
 This document assumes that the [Pantheon](https://pantheon.io/) (or any other given dev environment) is already up and running and that [Yeoman](https://bitbucket.org/giorgioriccardi/templates-linters.git) template is installed and ready to be compiled in the new starter theme root.
+=======
+**Note** This `_s` bundle has been initiated on **February 2018** using the `_sassify` option but no support for *WooCommerce* for now.
+
+This document assumes that [Pantheon](https://pantheon.io/) (or any other given dev environment) is already up and running and that [Yeoman](https://bitbucket.org/giorgioriccardi/templates-linters.git) template is installed and ready to be compiled in the new starter theme root.
+>>>>>>> swiper-slider
 
 ## Initial front-dev setup in WordPress Dashboard
 
@@ -8,7 +14,11 @@ This document assumes that the [Pantheon](https://pantheon.io/) (or any other gi
 	* Follow instructions on the doc page, just make sure to select all the advanced options available, especially `SASS` files.
 * Give it a meaningful name, for this prototype is `GRC 2018` (slug: `grc2018`).
 
+<<<<<<< HEAD
 **~~For the sake of this prototype I will not support `WooCommerce` features right away~~**.
+=======
+*~~For the sake of this prototype I will not support `WooCommerce` features right away~~*.
+>>>>>>> swiper-slider
 
 ## Initial Theme Build
 
@@ -88,7 +98,11 @@ is stored as a comment on top of `/inc/custom-header.php`
 * Into **functions.php** right after the theme-navigation enqueue script we implement this code:
 	```
 	wp_enqueue_script( 'grc2018-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), '20151215', true );
+<<<<<<< HEAD
 	// TwentySeventeen localized script
+=======
+	// nicked from the TwentySeventeen localized script
+>>>>>>> swiper-slider
 	wp_localize_script( 'grc2018-navigation', 'grc2018ScreenReaderText',
 		array(
 			'aria-expand'   => __( 'Expand child menu', 'grc2018' ),
@@ -185,6 +199,10 @@ is stored as a comment on top of `/inc/custom-header.php`
 	      // If we need pagination
 	      pagination: {
 	          el: '.swiper-pagination',
+<<<<<<< HEAD
+=======
+						type: 'progressbar',
+>>>>>>> swiper-slider
 	      },
 
 	      // Navigation arrows
@@ -357,4 +375,8 @@ is stored as a comment on top of `/inc/custom-header.php`
 		</figure>
 	<?php
 	endif; ?><!-- end if featured image exists -->
+<<<<<<< HEAD
 	```
+=======
+	```
+>>>>>>> swiper-slider
