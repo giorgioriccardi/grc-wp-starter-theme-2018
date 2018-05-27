@@ -62,7 +62,7 @@
 	.current-menu-item > a,
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
-		color: $red;
+		color: $red-debug;
 	}
 
 	.menu-item-has-children,
@@ -79,10 +79,10 @@ button.dropdown-toggle {
 	position: absolute;
 	right: 0;
 	border: none;
-	background: $red;
+	background: $red-debug;
 	color: $white;
-	line-height: 1.5em;
-	padding: .4em 1em .4em .5em;
+	line-height: 1.5;
+	padding: .6em 1em .4em;
 }
 
 .menu-toggle {
