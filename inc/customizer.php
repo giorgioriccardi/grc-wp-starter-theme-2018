@@ -33,8 +33,10 @@ function grc2018_customize_register( $wp_customize ) {
 		 */
 		$wp_customize->add_section(
 			'theme_options', array(
-				'title'    => __( 'Theme Options', 'grc2018' ),
-				'priority' => 130, // Before Additional CSS.
+				'title'    		=> __( 'Theme Options', 'grc2018' ),
+				'priority' 		=> 130, // Before Additional CSS.
+				'capability'	=> 'edit_theme_options',
+				'description'	=> __( 'Toggle on/off Recent Posts Slider' ),
 			)
 		);
 
@@ -42,21 +44,23 @@ function grc2018_customize_register( $wp_customize ) {
 			'swiper_slider', array(
 				'default'           => 'on',
 				'transport'         => 'postMessage',
+				'type'							=> 'theme_mod',
 				'sanitize_callback' => 'grc2018_sanitize_swiperslider',
 			)
 		);
 
 		$wp_customize->add_control(
 			'swiper_slider', array(
-				'type'     => 'radio',
+				'type'     				=> 'radio',
 				'description'     => __( 'Create an automatic slider on the homepage with the latest 3 posts' ),
-				'label'    => __( 'Swiper Slider', 'grc2018' ),
-				'choices'  => array(
-					'on'  	 => __( 'On', 'grc2018' ),
-					'off'    => __( 'Off', 'grc2018' ),
+				'label'    				=> __( 'Swiper Slider', 'grc2018' ),
+				'choices'  				=> array(
+					'on'  	 					=> __( 'On (default)', 'grc2018' ),
+					'off'    					=> __( 'Off', 'grc2018' ),
 				),
-				'section'  => 'theme_options',
-				'priority' => 5,
+				'section'  				=> 'theme_options',
+				'settings' 				=> 'swiper_slider', // Match setting ID from above
+				'priority' 				=> 5,
 			)
 		);
 	}
@@ -108,10 +112,10 @@ function grc2018_sanitize_swiperslider( $input ) {
 	return '';
 }
 
-/**
- * Display Swiper Slider
- *
- */
+// /**
+//  * Display Swiper Slider
+//  *
+//  */
 // if ( ! function_exists( 'grc2018_display_swiper_slider' ) ) {
 // 	function grc2018_display_swiper_slider() {
 // 		// Return true by default
@@ -123,6 +127,6 @@ function grc2018_sanitize_swiperslider( $input ) {
 // 		}
 //
 // 		// Apply filters and return
-// 		return apply_filters( 'grc_filter', $return );
+// 		return apply_filters( 'swiper_slider_filter', $return );
 // 	}
 // }
