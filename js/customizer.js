@@ -42,11 +42,13 @@
 
 	// GRC
 	// Toggle for Swiper Slider on Homepage
-	// wp.customize( 'swiper_slider', function( value ) {
-	// 	value.bind( function( to ) {
-	// 		$( '.swiper-container' ).css( {
-	// 			'display': 'none'
-	// 		} );
-	// } );
+	wp.customize( 'swiper_slider', function( value ) {
+		value.bind( function( to ) {
+			// $('.swiper-container').css( 'display', to );
+				$( '.swiper-container' ).css( {
+					'display': to
+				} );
+		} );
+	} );
 
 } )( jQuery );

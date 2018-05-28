@@ -5,7 +5,6 @@
  * Custom loop for post items in the slider on the front page.
  * Slider will show up to 3 posts
  */
-
 ?>
 
 <!-- Swiper Slider main container -->
