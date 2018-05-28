@@ -259,6 +259,85 @@ is stored as a comment on top of `/inc/custom-header.php`
 	?>
 	```
 
+### Add Customizer Options for Swiper Slider
+* Edit `/inc/customizer.php`
+* Add a Theme Section
+```
+$wp_customize->add_section(
+	'theme_options', array(
+		'title'	=> __( 'Theme Options', 'grc2018' ),
+		'priority'	=> 130, // Before Additional CSS.
+		'capability'	=> 'edit_theme_options',
+		'description'	=> __( 'Toggle on/off Recent Posts Swiper Slider' ),
+	)
+);
+```
+* Add settings for Swiper Slider
+```
+$wp_customize->add_setting(
+	'swiper_slider', array(
+		'default'	=> '',
+		'transport'	=> 'postMessage',
+		'type'	=> 'theme_mod',
+		'sanitize_callback'	=> 'grc2018_sanitize_swiperslider',
+	)
+);
+```
+* Add controls for Swiper Slider
+```
+$wp_customize->add_control(
+	'swiper_slider', array(
+		'type'	=> 'radio',
+		'description'	=> __( 'Create an automatic slider on the homepage with the latest 3 posts' ),
+		'label'	=> __( 'Swiper Slider', 'grc2018' ),
+		'choices'	=> array(
+			''	=> __( 'On (default)', 'grc2018' ),
+			'none'	=> __( 'Off', 'grc2018' ),
+		),
+		'section'	=> 'theme_options',
+		'settings'	=> 'swiper_slider', // Match setting ID from above
+		'priority'	=> 5,
+	)
+);
+```
+* Sanitize the input controls
+```
+function grc2018_sanitize_swiperslider( $input ) {
+	$valid = array(
+		''	=> __( 'On', 'grc2018' ),
+		'none'	=> __( 'Off', 'grc2018' ),
+	);
+	if ( array_key_exists( $input, $valid ) ) {
+		return $input;
+	}
+	return '';
+}
+```
+* Implement controls logic
+```
+function swiper_slider_toggle_css() {
+	?>
+	<style type='text/css'>
+		.swiper-container {
+			display:<?php echo get_theme_mod('swiper_slider') ?> ;
+		}
+	</style>
+	<?php
+}
+add_action( 'wp_head' , 'swiper_slider_toggle_css' );
+```
+* Edit `/inc/customizer.js`
+```
+wp.customize( 'swiper_slider', function( value ) {
+	value.bind( function( to ) {
+		// $('.swiper-container').css( 'display', to );
+			$( '.swiper-container' ).css( {
+				'display': to
+			} );
+	} );
+} );
+```
+
 ## Main Content
 
 **Note** Move all the template-parts into sub-folders for header, navigation, page, post, footer
@@ -330,7 +409,6 @@ is stored as a comment on top of `/inc/custom-header.php`
 		margin: rem(20)
 	}
 	```
-
 
 ### Post Featured Images
 

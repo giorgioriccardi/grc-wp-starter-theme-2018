@@ -69,7 +69,7 @@ function grc2018_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'grc2018_customize_register' );
 
 /**
- * Sanitize the SwiperSlider.
+ * Sanitize the Swiper Slider input controls.
  *
  * @param string $input Swiper Slider.
  */
