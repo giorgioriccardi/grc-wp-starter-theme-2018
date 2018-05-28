@@ -97,7 +97,6 @@ is stored as a comment on top of `/inc/custom-header.php`
 	);
 	```
 
-
 #### Footer Social Links Menu
 
 * Create a file **/inc/icon-functions.php**

@@ -11,10 +11,11 @@
 	}
 
 	.grid-item {
-		width: rem(350);
+		width: rem(400);
 		border: 1px $grey solid;
-		float: left;
+		// float: left;
 		margin: 0 rem(20) rem(20) 0;
+		padding: 0;
 	}
 }
 
@@ -23,4 +24,82 @@
 .grid .entry-content,
 .grid .entry-footer {
 	margin: rem(20)
+}
+
+/* Smaller than standard 1920 */
+@media only screen and (max-width: 1799px) {
+	.grid {
+		.grid-item {
+			width: rem(350);
+		}
+		h2.entry-title {
+			font-size: 2.2em;
+		}
+	}
+}
+
+/* Smaller than standard 1600 */
+@media only screen and (max-width: 1599px) {
+	.grid {
+		.grid-sizer {
+			width: 30%;
+		}
+		.grid-item {
+			width: rem(350);
+		}
+		h2.entry-title {
+			// font-size: 2em;
+		}
+	}
+}
+
+/* Smaller than standard 1400 */
+@media only screen and (max-width: 1399px) {
+	.grid {
+		.grid-sizer {
+			width: 25%;
+		}
+		.grid-item {
+			width: rem(250);
+		}
+		h2.entry-title {
+			font-size: 1.8em;
+		}
+	}
+}
+
+/* Smaller than standard 1200 */
+@media only screen and (max-width: 1199px) {
+	.grid {
+		.grid-sizer {
+			width: 30%;
+		}
+		.grid-item {
+			width: rem(200);
+		}
+		h2.entry-title {
+			// font-size: 1.6em;
+		}
+	}
+}
+
+/* Smaller than standard 980 */
+@media only screen and (max-width: 979px) {
+	.grid {
+		.grid-item {
+			width: rem(175);
+		}
+	}
+}
+
+/* All Mobile Sizes */
+@media only screen and (max-width: 767px) {
+	.grid {
+		.grid-item {
+			width: 100%;
+		}
+		h2.entry-title {
+			font-size: 2.6em;
+		}
+	}
 }
