@@ -437,3 +437,14 @@ wp.customize( 'swiper_slider', function( value ) {
 	<?php
 	endif; ?><!-- end if featured image exists -->
 	```
+
+### WordPress Dashboard editor
+
+**Note** This does not work with the **Gutenberg** editor
+
+* Create a file `editor-style.css` into `/inc/editor-style.css`
+* Add/Enqueue Dasboard Editor style into `functions.php`
+	```
+	add_editor_style( 'inc/editor-style.css' );
+	```
+* Add some styles into `editor-style.css`

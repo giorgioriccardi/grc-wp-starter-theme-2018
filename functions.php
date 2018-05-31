@@ -88,7 +88,7 @@ if ( ! function_exists( 'grc2018_setup' ) ) :
 			// 'flex-height' => true,
 		) );
 
-		/* Dashboard Editor Style */
+		/* Enqueue Dashboard Editor Style */
 		add_editor_style( 'inc/editor-style.css' );
 	}
 endif;
