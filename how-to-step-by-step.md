@@ -448,3 +448,12 @@ wp.customize( 'swiper_slider', function( value ) {
 	add_editor_style( 'inc/editor-style.css' );
 	```
 * Add some styles into `editor-style.css`
+
+### Comments Pagination
+
+* Add `comments pagination` snippet to **comments.php**
+	```
+	<div class="comments-pagination pagination">
+	    <?php paginate_comments_links(); ?>
+	</div>
+	```
