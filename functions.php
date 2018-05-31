@@ -16,7 +16,7 @@ if ( ! function_exists( 'grc2018_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function grc2018_setup() {
-		/*
+		/**
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on GRC 2018, use a find and replace
@@ -27,7 +27,7 @@ if ( ! function_exists( 'grc2018_setup' ) ) :
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
-		/*
+		/**
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
 		 * hard-coded <title> tag in the document head, and expect WordPress to
@@ -35,7 +35,7 @@ if ( ! function_exists( 'grc2018_setup' ) ) :
 		 */
 		add_theme_support( 'title-tag' );
 
-		/*
+		/**
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
@@ -53,7 +53,7 @@ if ( ! function_exists( 'grc2018_setup' ) ) :
 			'social' => esc_html__( 'Social Links Menu', 'grc2018' ),
 		) );
 
-		/*
+		/**
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
@@ -87,6 +87,9 @@ if ( ! function_exists( 'grc2018_setup' ) ) :
 			'flex-width'  => true,
 			// 'flex-height' => true,
 		) );
+
+		/* Dashboard Editor Style */
+		add_editor_style( 'inc/editor-style.css' );
 	}
 endif;
 add_action( 'after_setup_theme', 'grc2018_setup' );

@@ -36,7 +36,7 @@ function grc2018_customize_register( $wp_customize ) {
 				'title'    		=> __( 'Theme Options', 'grc2018' ),
 				'priority' 		=> 130, // Before Additional CSS.
 				'capability'	=> 'edit_theme_options',
-				'description'	=> __( 'Toggle on/off Recent Posts Swiper Slider' ),
+				'description'	=> __( 'Toggle on/off Recent Posts Swiper Slider', 'grc2018' ),
 			)
 		);
 
@@ -45,23 +45,23 @@ function grc2018_customize_register( $wp_customize ) {
 			'swiper_slider', array(
 				'default'           => '',
 				'transport'         => 'postMessage',
-				'type'							=> 'theme_mod',
+				'type'				=> 'theme_mod',
 				'sanitize_callback' => 'grc2018_sanitize_swiperslider',
 			)
 		);
 
 		$wp_customize->add_control(
 			'swiper_slider', array(
-				'type'     				=> 'radio',
-				'description'     => __( 'Create an automatic slider on the homepage with the latest 3 posts' ),
-				'label'    				=> __( 'Swiper Slider', 'grc2018' ),
-				'choices'  				=> array(
-				''  	 								=> __( 'On (default)', 'grc2018' ),
-				'none'    						=> __( 'Off', 'grc2018' ),
+				'type'			=> 'radio',
+				'description'	=> __( 'Create an automatic slider on the homepage with the latest 3 posts', 'grc2018' ),
+				'label'			=> __( 'Swiper Slider', 'grc2018' ),
+				'choices'		=> array(
+					''				=> __( 'On (default)', 'grc2018' ),
+					'none'			=> __( 'Off', 'grc2018' ),
 				),
-				'section'  				=> 'theme_options',
-				'settings' 				=> 'swiper_slider', // Match setting ID from above
-				'priority' 				=> 5,
+				'section'		=> 'theme_options',
+				'settings'		=> 'swiper_slider', // Match setting ID from above
+				'priority'		=> 5,
 			)
 		); // end of Swiper Slider Options
 	}
@@ -75,7 +75,7 @@ add_action( 'customize_register', 'grc2018_customize_register' );
  */
 function grc2018_sanitize_swiperslider( $input ) {
 	$valid = array(
-		'' 				=> __( 'On', 'grc2018' ),
+		'' 			=> __( 'On', 'grc2018' ),
 		'none' 		=> __( 'Off', 'grc2018' ),
 	);
 	if ( array_key_exists( $input, $valid ) ) {
