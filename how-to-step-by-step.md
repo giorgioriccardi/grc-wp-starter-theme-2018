@@ -1,6 +1,8 @@
 # How to build a WP theme from scratch with `_s`
 
-This document assumes that the [Pantheon](https://pantheon.io/) (or any other given dev environment) is already up and running and that [Yeoman](https://bitbucket.org/giorgioriccardi/templates-linters.git) template is installed and ready to be compiled in the new starter theme root.
+**This theme is just for developers and it includes just basic css implementation.**
+
+This step-by-step guide assumes that the [Pantheon](https://pantheon.io/) (or any other given dev environment) is already up and running and that [Yeoman](https://bitbucket.org/giorgioriccardi/templates-linters.git) template is installed and ready to be compiled in the new starter theme root.
 
 ## Initial front-dev setup in WordPress Dashboard
 

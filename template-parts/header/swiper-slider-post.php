@@ -18,8 +18,8 @@
 			$args = array(
 				'numberposts' => 3, // Display up to 3 posts.
 				'orderby' => 'date',
-	      'order' => 'DESC',
-	      'suppress_filters' => true
+	      		'order' => 'DESC',
+	      		'suppress_filters' => true
 			);
 			$postQuery = get_posts($args);
 

@@ -26,3 +26,56 @@ h5 {
 h6 {
 	font-size: 1.6em;
 }
+
+// make headings responsive
+@media screen and (min-width: 980px) {
+	h1 {
+		font-size: 3em;
+	}
+
+	h2 {
+		font-size: 2.6em;
+	}
+
+	h3 {
+		font-size: 2.2em;
+	}
+
+	h4 {
+		font-size: 2em;
+	}
+
+	h5 {
+		font-size: 1.8em;
+	}
+
+	h6 {
+		font-size: 1.6em;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 979px) {
+	h1 {
+		font-size: 2.4em;
+	}
+
+	h2 {
+		font-size: 2em;
+	}
+
+	h3 {
+		font-size: 1.8em;
+	}
+
+	h4 {
+		font-size: 1.6em;
+	}
+
+	h5 {
+		font-size: 1.4em;
+	}
+
+	h6 {
+		font-size: 1.2em;
+	}
+}

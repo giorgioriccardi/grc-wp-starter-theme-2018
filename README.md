@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
-GRC2018, a WP starter theme based on `_s`, `Masonry Grid` & `Swiper Slider` 
+GRC2018, a WP starter theme based on `_s`, `Masonry Grid` & `Swiper Slider`
+
+This theme is just for developers and it includes just basic css implementation.
  ===
 
 ## How I did it, a step by step dev guide:
@@ -39,7 +41,7 @@ If you want to set things up manually, download `_s` from GitHub. The first thin
 OR
 
 1. Search for: `'_s'` and replace with: `'grc2018'`
-2. Search for: `_s_` and replace with: `megatherium_is_awesome_`
+2. Search for: `_s_` and replace with: `grc2018_`
 3. Search for: `Text Domain: _s` and replace with: `Text Domain: grc2018` in `style.css`.
 4. Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;grc2018</code>
 5. Search for: `_s-` and replace with: `grc2018-`
