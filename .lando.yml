@@ -1,0 +1,7 @@
+name: grc-2018
+recipe: pantheon
+config:
+  framework: wordpress
+  env: dev
+  site: grc-2018
+  id: 9a2a8ec2-cbc5-415f-b8e0-50b4be989c1f

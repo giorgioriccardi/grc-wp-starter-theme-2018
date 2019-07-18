@@ -12,18 +12,18 @@
  * @package GRC_2018
  */
 
-get_header(); ?>
+get_header();?>
 
 	<div id="primary" class="content-area">
 
 		<!-- Swiper Slider -->
 		<?php
-			// Check if this is the front page and that it is not page 2 or higher
-			if ( is_front_page() && !is_paged() ) {
-				// Add featured content slider
-				get_template_part( 'template-parts/header/swiper-slider-post' );
-			}
-		?>
+// Check if this is the front page and that it is not page 2 or higher
+if (is_front_page() && !is_paged()) {
+    // Add featured content slider
+    get_template_part('template-parts/header/swiper-slider-post');
+}
+?>
 		<!-- end Swiper Slider -->
 
 		<!-- Masonry Grid -->
@@ -34,42 +34,42 @@ get_header(); ?>
   		<div class="grid-sizer"></div>
 
 		<?php
-		if ( have_posts() ) :
+if (have_posts()):
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+    if (is_home() && !is_front_page()): ?>
+					<header>
+						<h1 class="page-title screen-reader-text"><?php single_post_title();?></h1>
+					</header>
 
-			<?php
-			endif;
+				<?php
+endif;
 
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
+/* Start the Loop */
+while (have_posts()): the_post();
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/post/content', get_post_format() );
+    /*
+     * Include the Post-Format-specific template for the content.
+     * If you want to override this in a child theme, then include a file
+     * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+     */
+    get_template_part('template-parts/post/content', get_post_format());
 
-			endwhile;
+endwhile;
 
-			// GRC Move posts navigation outside <main> container
-			// the_posts_navigation();
+// GRC Move posts navigation outside <main> container
+// the_posts_navigation();
 
-		else :
+else:
 
-			get_template_part( 'template-parts/post/content', 'none' );
+    get_template_part('template-parts/post/content', 'none');
 
-		endif; ?>
+endif;?>
 
 		</main><!-- #main -->
 		<!-- end Masonry Grid -->
 
 		<!-- GRC Move posts navigation outside <main> container -->
-		<?php the_posts_navigation(); ?>
+		<?php the_posts_navigation();?>
 
 	</div><!-- #primary -->
 
