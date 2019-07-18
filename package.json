@@ -94,7 +94,8 @@
     }
   },
   "dependencies": {
-    "eslint-rallycoding": "^1.2.0"
+    "eslint-rallycoding": "^1.2.0",
+    "fibers": "^4.0.1"
   },
   "babel": {
     "presets": [

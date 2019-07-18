@@ -1,0 +1,124 @@
+{
+  "attributeQuotes": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "borderZero": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "colorVariables": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "comment": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "decimalZero": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "depthLevel": {
+    "enabled": true
+  },
+  "duplicateProperty": {
+    "enabled": true
+  },
+  "emptyRule": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "finalNewline": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "hexLength": {
+    "enabled": true,
+    "severity": "error",
+    "style": "short"
+  },
+  "hexNotation": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "hexValidation": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "idSelector": {
+    "enabled": true
+  },
+  "importantRule": {
+    "enabled": true
+  },
+  "importPath": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "newlineAfterBlock": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "disallowUppercase": {
+    "enabled": true
+  },
+  "singleLinePerProperty": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "singleLinePerSelector": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "spaceAfterPropertyColon": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "spaceAfterPropertyValue": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "spaceAroundBang": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "spaceAroundComma": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "spaceAroundOperator": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "spaceBeforeBrace": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "spaceBetweenParens": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "stringQuotes": {
+    "enabled": true,
+    "severity": "error",
+    "style": "double"
+  },
+  "trailingSemicolon": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "trailingWhitespace": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "urlQuotes": {
+    "enabled": true,
+    "severity": "error"
+  },
+  "zeroUnit": {
+    "enabled": true,
+    "severity": "error",
+    "style": "no_unit"
+  }
+}

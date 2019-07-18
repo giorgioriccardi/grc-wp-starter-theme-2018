@@ -16,7 +16,7 @@ Source code and resources are version controlled using `git`. We use `gitlab` (`
 We'll be using `Gulp` to configure and build the project.  Before starting, run the following:
 
 ```
-% npm install
+% npm install (requires `npm install -g node@8.10.0`)
 % bower install
 % scripts/update-env.py
 ```
